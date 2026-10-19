@@ -1,24 +1,60 @@
 """
-Name: (put your name here)
+Name: Steph Krieger
 Peers: (add any collaborators)
 References: (anything you checked to solve this)
 """
 
 def get_letter():
     """ Add your own Docstring """
+    while True:
+        letter = input("Give an single uppercase letter: ")
+        
+        if len(letter) != 1:
+            print("Error: it needs to be a single character.")
+            continue
+        if letter not in ["A", "B", "C"]:
+            print("Error: You provided the wrong character.")
+            continue
+        else:
+            return letter
+    
+
     # remove the default return and add your code
-    return ""
+    return get_letter()
 
 def get_digit():
     """ Add your own Docstring """
+    while True:
+        digit = input("Give an single number charecter: ")
+    
+        if not digit.isdigit():
+            print("Error: your input should be only digits.")
+            continue
+        if digit not in ["1", "2", "3"]:
+            print("Error: a single digit needs to be in [1,3].")
+            continue
+        else:
+            return digit
+    
     # remove the default return and add your code
-    return 0
+    return get_digit()
 
 
 def check_pattern(letter, digit, lst):
-    """ Add your own Docstring """
-    # remove the default pass and add your code
-    pass
+    """Prints strings containing the letter and digit in order."""
+
+    print("Strings with the pattern:")
+
+    for word in lst:
+        for i in range(len(word)):
+            if word[i] == letter:
+                if digit in word[i + 1:]:
+                    print(word, end=" ")
+                    break
+
+    print()
+
+
 
 
 #  The function main is INCOMPLETE, you must finish it
@@ -43,6 +79,16 @@ def main ():
     # -------------------------------------------------
 
     # Your code Here
+    while True:
+        letter = get_letter()
+        digit = get_digit()
+
+        check_pattern(letter, digit, st_list)
+
+        again = input("Try Again? (y/n): ")
+
+        if again != "y":
+            break
 
     # -------------------------------------------------
     # No need to modify anything Below this line
